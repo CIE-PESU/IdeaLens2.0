@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-blue: #0f172a;
+  --color-brand-accent: #06b6d4;
+  --color-brand-indigo: #4f46e5;
+  --color-brand-teal: #14b8a6;
+
+  --font-sans: 'Inter', var(--font-geist-sans), ui-sans-serif, system-ui;
+  --font-mono: var(--font-geist-mono);
+
+  /* Typography Tokens (+1.5px Baseline Increase - Golden Mean Refinement) */
+  --font-size-ui-micro: 7.5px;   /* formerly 6px */
+  --font-size-ui-tiny: 9.5px;    /* formerly 8px */
+  --font-size-ui-compact: 10.5px;/* formerly 9px */
+  --font-size-ui-regular: 12.5px;/* formerly 11px */
+  --font-size-ui-data-label: 14px; /* formerly 12px */
+  --font-size-ui-data-value: 15px; /* formerly 13px */
+  --font-size-ui-signal-content: 16.5px; /* formerly 15px */
+  --font-size-ui-signal-label: 20px;   /* formerly 18px */
+}
+
+:root {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --surface-slate: #f4f7fa;
+  --card-bg: rgba(244, 247, 250, 0.9);
+  --card-border: rgba(15, 30, 46, 0.08);
+  --glass-shadow: 0 10px 40px -10px rgba(15, 30, 46, 0.05);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #020617;
+    --foreground: #f8fafc;
+    --card-bg: rgba(15, 23, 42, 0.7);
+    --card-border: rgba(255, 255, 255, 0.05);
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Glassmorphism Utilities */
+.glass-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: 1.5rem;
+}
+
+.glass-morphism {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Animations */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-premium {
+  animation: fadeInScale 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.2);
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+
+/* Custom Gradients */
+.bg-premium-gradient {
+  background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+}
+
+.text-gradient {
+  background: linear-gradient(to right, #06b6d4, #4f46e5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
